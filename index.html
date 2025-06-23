@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Furniture Store</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header/Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand me-4" href="index.html">
+                <span class="fw-bold">Furni</span>ture
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-flex 	justify-content-between" id="navbarNav">
+
+
+                <!-- Search Form -->
+
+                <form id="searchForm" class="me-5" role="search">
+                    <div class="search-container d-flex align-items-center" style="max-width: 350px; height: 36px;">
+                        <input type="text" id="productSearch" placeholder="Search products..."
+                            class="form-control border-0 rounded-start-5 bg-white"
+                            style="font-size: 13px; height: 100%; padding: 4px 10px; box-shadow: none; outline: none;">
+                        <button type="submit" class="btn rounded-end-5" style="height: 100%; padding: 4px 12px; ">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+
+
+
+                <ul class="navbar-nav mx-4" >
+                    <li class="nav-item px-3"> <!-- Increased padding from px-2 to px-3 -->
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="#products">Shop</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="#testimonials">News</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="#contact">Contact Us</a>
+                    </li>
+                </ul>
+
+
+                <!-- Trigger buttons -->
+                <div class="ms-lg-4 d-flex align-items-center">
+
+                    <button id="cartButton" class="btn  ">
+                        🛒 <span id="cart-count">0</span>
+                    </button>
+
+                 <!-- Wishlist Button -->
+<button class="wishlist-counter position-relative" id="wishlistCountBtn" title="Wishlist">
+  &#10084;
+  <span id="wishlistCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill " style="background-color: #519aa1;">
+    0
+  </span>
+</button>
+
+<!-- Wishlist Dropdown Box -->
+<div id="wishlistItemsContainer" style="position: absolute; top: 60px; right: 20px; background: white; border: 1px solid #ccc; padding: 10px; width: 250px; display: none; z-index: 1000; border-radius: 10px;">
+  <strong>Wishlist</strong>
+  <div id="wishlistItems"></div>
+</div>
+
+
+                    <a href="#" class="btn" id="loginBtn"><i class="fa-regular fa-user ms-lg-4 m-1"></i>Login</a>
+                </div>
+
+                <!-- Login Modal -->
+                <div class="modal" id="loginModal">
+                    <div class="modal-content">
+                        <span class="close-btn" id="closeModal">&times;</span>
+                        <h2>Login</h2>
+                        <form id="loginForm">
+                            <div class="form-group">
+                                <label>Username or Email Address</label>
+                                <input type="text" id="email" placeholder="Enter your email" />
+                                <small class="error" id="emailError">Email is required</small>
+                            </div>
+
+                            <div class="form-group" style="position: relative;">
+                                <label>Password</label>
+                                <input type="password" id="password" placeholder="Enter password" />
+                                <span class="toggle-password" onclick="togglePassword()"></span>
+                                <small class="error" id="passwordError">Password is required</small>
+                            </div>
+
+                            <div class="form-options">
+                                <label><input type="checkbox" /> Remember Me</label>
+                                <a href="#">Forgot Password?</a>
+                            </div>
+
+                            <button type="submit">Log In</button>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <!-- Hero Section -->
+    <section class="hero-section ">
+        <div id="home">
+        <div class="container w-0  h-100 d-flex justify-content-around  rounded-4 " style="background-color: #eef4f5;">
+
+            <div class="h-section1 py-5">
+                <h2 class="h-text1" style="font-size: 51px;">Exquisite design combined with functionalities</h2>
+                <p style="font-size: 18px; width: 70%; padding-top: 20px;">Pellentesque ullamcorper dignissim
+                    condimentum volutpat consequat mauris nunc lacinia quis.</p>
+
+
+
+                <div class="contact-box">
+                    <div class="avatars">
+                        <img src="images/avatar1.jpg" alt="Expert 1">
+                        <img src="images/avatar2.jpg" alt="Expert 2">
+                        <img src="images/avatar3.jpg" alt="Expert 3">
+                    </div>
+                    <span class="text">Contact with our expert</span>
+                </div>
+                <div class="avatar-btn">
+                    <button id="shopNowBtn" class="rounded-4 p-3 text-center">Shop now</button>
+                </div>
+
+            </div>
+            <!-- C1 -->
+            <div class="card-wrapper d-flex justify-content-center align-items-center p-5">
+                <div class="product-card  text-white rounded-4 ">
+                    <div class="card-content p-3">
+                        <div class="product-info bg-white text-dark p-2 rounded-3 mb-4">
+                            <h6 class="fw-bold mb-1">Wooden Chair</h6>
+                            <p class="mb-0">$199</p>
+                        </div>
+                    </div>
+                    <div
+                        class="arrow-button position-absolute bottom-0 start-0 m-3 bg-white rounded-circle d-flex justify-content-center align-items-center">
+                        <span class="fs-4 text-dark">&rarr;</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="h-section2 py-5 w-30 ">
+
+                <div class="product-card2 position-relative text-white   rounded-4  ">
+                    <div class="card-content p-3">
+                        <div class="product-info2 bg-white text-dark p-2 rounded-3 mb-4">
+                            <h6 class="fw-bold mb-1">Pretium Elite</h6>
+                            <p class="mb-0">$130</p>
+                        </div>
+                    </div>
+                    <div
+                        class="arrow-button position-absolute bottom-0 start-0 m-3 bg-white rounded-circle d-flex justify-content-center align-items-center">
+                        <span class="fs-4 text-dark">&rarr;</span>
+                    </div>
+                </div>
+                <div class="section2-txt-btn ">
+                    <h3>25% OFF</h3>
+                    <p>Donec ac odio tempor dapibus</p>
+                    <button>Explore Now</button>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </section>
+
+
+    <!-- Products Section -->
+
+
+    <section id="products" class="products-section py-4">
+
+        <div class="container h-100">
+            <div class="section-header text-center mb-5">
+                <h2>Our Featured Products</h2>
+                <p class="text-muted">Browse our collection of premium furniture</p>
+            </div>
+
+            <div class="row g-4 h-100" id="productList">
+                <!-- Product 1 -->
+
+                <div class="product-container">
+                    <div class="col-md-3">
+                        <div class="furniture-card">
+                            <div class="furniture-image">
+                                <img src="images/chair.jpg" alt="Table" class="img-fluid">
+                                <div class="action-buttons">
+                                    <button class="wishlist-button" title="Wishlist">&#10084;</button>
+                                    <button title="Compare">&#8646;</button>
+                                    <button class="quickview-btn" data-title="Aliquam Blandit" data-price="$320.00"
+                                        data-description="Portitor lacus luctus accumsan tortor posuere ac ut..."
+                                        data-category="TABLES" data-image="images/chair.jpg">
+                                        &#128065;
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="furniture-details">
+                                <h5>Aliquam Blandit</h5>
+                                <small>CHAIR</small>
+                            </div>
+                            <div class="furniture-footer">
+                                <span>$220.00</span>
+                                <button class="add-to-cart-btn" data-title="Aliquam Blandit" data-category="CHAIR"
+                                    data-price="220.00" data-image="images/chair.jpg">
+                                    Add to cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Product 2 -->
+
+                    <div class="col-md-3">
+                        <div class="furniture-card">
+                            <div class="furniture-image">
+                                <img src="images/decors2.jpg" alt="Table" class="img-fluid">
+                                <div class="action-buttons">
+                                    <button class="wishlist-button" title="Wishlist">&#10084;</button>
+                                    <button title="Compare">&#8646;</button>
+
+
+                                    <button class="quickview-btn" data-title="Modern Sofa" data-price="$499.00"
+                                        data-description="High comfort modern sofa with premium fabric..."
+                                        data-category="SOFAS" data-image="images/sofa.jpg">
+                                        &#128065;
+                                    </button>
+
+                                </div>
+                            </div>
+                            <div class="furniture-details">
+                                <h5>Diam Volutpat</h5>
+                                <small>DECORS</small>
+                            </div>
+                            <div class="furniture-footer">
+                                <span>$322.00</span>
+                                <!-- Inside each product -->
+                                <button class="add-to-cart-btn" data-title="Diam Volutpat" data-category="DECORS"
+                                    data-price="$322.00" data-image="images/decors2.jpg">
+                                    Add to cart
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="col-md-3">
+                        <div class="furniture-card">
+                            <div class="furniture-image">
+                                <img src="images/Decors.jpg" alt="Table" class="img-fluid">
+                                <div class="action-buttons">
+                                    <button class="wishlist-button" title="Wishlist">&#10084;</button>
+                                    <button title="Compare">&#8646;</button>
+                                    <button class="quickview-btn" data-title="Modern Sofa" data-price="$499.00"
+                                        data-description="High comfort modern sofa with premium fabric..."
+                                        data-category="SOFAS" data-image="images/sofa.jpg">
+                                        &#128065;
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="furniture-details">
+                                <h5>Aliquam Blandit</h5>
+                                <small>DECORS</small>
+                            </div>
+                            <div class="furniture-footer">
+                                <span>$330.00</span>
+                                <button class="add-to-cart-btn" data-title="Aliquam Blandit" data-category="DECORS"
+                                    data-price="$330.00" data-image="images/Decors.jpg">
+                                    Add to cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="col-md-3">
+                        <div class="furniture-card">
+                            <div class="furniture-image">
+                                <img src="images/bed.jpg" alt="Table" class="img-fluid">
+                                <div class="action-buttons">
+                                    <button class="wishlist-button" title="Wishlist">&#10084;</button>
+                                    <button title="Compare">&#8646;</button>
+                                    <button class="quickview-btn" data-title="Modern Sofa" data-price="$499.00"
+                                        data-description="High comfort modern sofa with premium fabric..."
+                                        data-category="SOFAS" data-image="images/sofa.jpg">
+                                        &#128065;
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="furniture-details">
+                                <h5>Aliquam Blandit</h5>
+                                <small>BED</small>
+                            </div>
+                            <div class="furniture-footer">
+                                <span>$420.00</span>
+                                <button class="add-to-cart-btn" data-title="Aliquam Blandit" data-category="BED"
+                                    data-price="$420.00" data-image="images/bed.jpg">
+                                    Add to cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row g-4 h-100" id="productList">
+                <!-- Product 5 -->
+                <div class="product-container ">
+                    <div class="col-md-3">
+                        <div class="furniture-card">
+                            <div class="furniture-image">
+                                <img src="images/Table.jpg" alt="Table" class="img-fluid">
+                                <div class="action-buttons">
+                                    <button class="wishlist-button" title="Wishlist">&#10084;</button>
+                                    <button title="Compare">&#8646;</button>
+                                    <button class="quickview-btn" data-title="Modern Sofa" data-price="$499.00"
+                                        data-description="High comfort modern sofa with premium fabric..."
+                                        data-category="SOFAS" data-image="images/sofa.jpg">
+                                        &#128065;
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="furniture-details">
+                                <h5>Aliquam Blandit</h5>
+                                <small>TABLE</small>
+                            </div>
+                            <div class="furniture-footer">
+                                <span>$334.00</span>
+                                <button class="add-to-cart-btn" data-title="Aliquam Blandit" data-category="TABLE"
+                                    data-price="$334.00" data-image="images/Table.jpg">
+                                    Add to cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+
+                    <div class="col-md-3">
+                        <div class="furniture-card">
+                            <div class="furniture-image">
+                                <img src="images/storage.jpg" alt="Table" class="img-fluid">
+                                <div class="action-buttons">
+                                    <button class="wishlist-button" title="Wishlist">&#10084;</button>
+                                    <button title="Compare">&#8646;</button>
+                                    <button class="quickview-btn" data-title="Modern Sofa" data-price="$499.00"
+                                        data-description="High comfort modern sofa with premium fabric..."
+                                        data-category="SOFAS" data-image="images/sofa.jpg">
+                                        &#128065;
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="furniture-details">
+                                <h5>Aliquam Blandit</h5>
+                                <small>TABLE</small>
+                            </div>
+                            <div class="furniture-footer">
+                                <span>$440.00</span>
+                                <button class="add-to-cart-btn" data-title="Aliquam Blandit" data-category="TABLE"
+                                    data-price="$440.00" data-image="images/storage.jpg">
+                                    Add to cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 7 -->
+                    <div class="col-md-3">
+                        <div class="furniture-card">
+                            <div class="furniture-image">
+                                <img src="images/chair.jpg" alt="Table" class="img-fluid">
+                                <div class="action-buttons">
+                                    <button class="wishlist-button" title="Wishlist">&#10084;</button>
+
+                                    <button title="Compare">&#8646;</button>
+                                    <button class="quickview-btn" data-title="Modern Sofa" data-price="$499.00"
+                                        data-description="High comfort modern sofa with premium fabric..."
+                                        data-category="SOFAS" data-image="images/sofa.jpg">
+                                        &#128065;
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="furniture-details">
+                                <h5>Aliquam Blandit</h5>
+                                <small>CHAIR</small>
+                            </div>
+                            <div class="furniture-footer">
+                                <span>$220.00</span>
+                                <button class="add-to-cart-btn" data-title="Aliquam Blandit" data-category="CHAIR"
+                                    data-price="220.00" data-image="images/chair.jpg">
+                                    Add to cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 8 -->
+                    <div class="col-md-3">
+                        <div class="furniture-card">
+                            <div class="furniture-image">
+                                <img src="images/product.jpg" alt="Table" class="img-fluid">
+                                <div class="action-buttons">
+                                    <button class="wishlist-button" title="Wishlist">&#10084;</button>
+
+                                    <button title="Compare">&#8646;</button>
+                                    <button class="quickview-btn" data-title="Modern Sofa" data-price="$499.00"
+                                        data-description="High comfort modern sofa with premium fabric..."
+                                        data-category="SOFAS" data-image="images/sofa.jpg">
+                                        &#128065;
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="furniture-details">
+                                <h5>Aliquam Blandit</h5>
+                                <small>CHAIR</small>
+                            </div>
+                            <div class="furniture-footer">
+                                <span>$330.00</span>
+                                <button class="add-to-cart-btn" data-title="Aliquam Blandit" data-category="CHAIR"
+                                    data-price="220.00" data-image="images/product.jpg">
+                                    Add to cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p id="notFoundMessage" class="text-center text-danger mt-3" style="display: none;">No products found.</p>
+        </div>
+
+
+
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="About Us" class="img-fluid rounded">
+                </div>
+                <div class="col-lg-6">
+                    <h2>About Our Furniture</h2>
+                    <p class="lead">We create furniture with passion and attention to detail.</p>
+                    <p>Our company was founded in 2010 with the mission to bring high-quality, sustainable furniture to
+                        modern homes. Each piece in our collection is carefully designed and crafted to combine
+                        functionality with aesthetic appeal.</p>
+                    <div class="features mt-4">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex">
+                                    <div class="me-3 text-primary">
+                                        <i class="fas fa-leaf fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        <h5>Sustainable Materials</h5>
+                                        <p class="text-muted mb-0">We use eco-friendly materials in all our products.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex">
+                                    <div class="me-3 text-primary">
+                                        <i class="fas fa-tools fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        <h5>Handcrafted Quality</h5>
+                                        <p class="text-muted mb-0">Each piece is carefully crafted by skilled artisans.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex">
+                                    <div class="me-3 text-primary">
+                                        <i class="fas fa-truck fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        <h5>Free Shipping</h5>
+                                        <p class="text-muted mb-0">Free delivery on all orders over $500.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex">
+                                    <div class="me-3 text-primary">
+                                        <i class="fas fa-shield-alt fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        <h5>5-Year Warranty</h5>
+                                        <p class="text-muted mb-0">We stand behind the quality of our products.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-primary mt-3">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section  py-5 " style="height: 100vh;">
+        <div class="container mt-5 ">
+            <div class="section-header text-center mb-5">
+                <h2>What Our Customers Say</h2>
+                <p class="text-muted">Hear from people who love our products</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card testimonial-card h-100">
+                        <div class="card-body">
+                            <div class="ratings mb-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="card-text">"The quality of the furniture exceeded my expectations. It's not only
+                                beautiful but also very comfortable. Delivery was prompt and the assembly was
+                                straightforward."</p>
+                            <div class="d-flex align-items-center mt-4">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Customer"
+                                    class="rounded-circle me-3" width="50">
+                                <div>
+                                    <h6 class="mb-0">Sarah Johnson</h6>
+                                    <p class="text-muted mb-0">New York, NY</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card testimonial-card h-100">
+                        <div class="card-body">
+                            <div class="ratings mb-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p class="card-text">"I've purchased several items from this store and each one has been
+                                perfect. The customer service is excellent and they really stand behind their products."
+                            </p>
+                            <div class="d-flex align-items-center mt-4">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Customer"
+                                    class="rounded-circle me-3" width="50">
+                                <div>
+                                    <h6 class="mb-0">Michael Chen</h6>
+                                    <p class="text-muted mb-0">San Francisco, CA</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card testimonial-card h-100">
+                        <div class="card-body">
+                            <div class="ratings mb-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="card-text">"The modern sofa I bought is the centerpiece of my living room. It's
+                                comfortable, stylish, and has held up beautifully over time. Highly recommend this
+                                company!"</p>
+                            <div class="d-flex align-items-center mt-4">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer"
+                                    class="rounded-circle me-3" width="50">
+                                <div>
+                                    <h6 class="mb-0">Emily Rodriguez</h6>
+                                    <p class="text-muted mb-0">Chicago, IL</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mb-3 mb-lg-0">
+                    <h3 class="mb-2">Ready to transform your home?</h3>
+                    <p class="mb-0">Sign up for our newsletter and get 10% off your first order.</p>
+                </div>
+                <div class="col-lg-4">
+                    <form class="d-flex">
+                        <input type="email" class="form-control me-2" placeholder="Your email">
+                        <button type="submit" class="btn btn-dark">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section py-5">
+        <div class="container mt-5">
+            <div class="section-header text-center mb-5">
+                <h2>Contact Us</h2>
+                <p class="text-muted">We'd love to hear from you</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Your Name">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Subject">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-info">
+                        <div class="d-flex mb-4">
+                            <div class="me-4 text-primary">
+                                <i class="fas fa-map-marker-alt fa-2x"></i>
+                            </div>
+                            <div>
+                                <h5>Our Location</h5>
+                                <p class="text-muted mb-0">123 Furniture Street, Design District, New York, NY 10001</p>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-4">
+                            <div class="me-4 text-primary">
+                                <i class="fas fa-phone-alt fa-2x"></i>
+                            </div>
+                            <div>
+                                <h5>Call Us</h5>
+                                <p class="text-muted mb-0">+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-4">
+                            <div class="me-4 text-primary">
+                                <i class="fas fa-envelope fa-2x"></i>
+                            </div>
+                            <div>
+                                <h5>Email Us</h5>
+                                <p class="text-muted mb-0">info@furniturestore.com</p>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-4">
+                            <div class="me-4 text-primary">
+                                <i class="fas fa-clock fa-2x"></i>
+                            </div>
+                            <div>
+                                <h5>Working Hours</h5>
+                                <p class="text-muted mb-0">Monday - Friday: 9AM - 6PM<br>Saturday: 10AM - 4PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="mb-3">Furniture Store</h5>
+                    <p>Providing high-quality, sustainable furniture for modern living spaces since 2010.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="mb-3">Shop</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50">Living Room</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Bedroom</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Dining Room</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Office</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Outdoor</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="mb-3">Company</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50">About Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Careers</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Blog</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Press</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="mb-3">Newsletter</h5>
+                    <p>Subscribe to get updates on new arrivals and special offers.</p>
+                    <form class="mt-4">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email">
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2023 Furniture Store. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="#" class="text-white-50">Privacy Policy</a></li>
+                        <li class="list-inline-item"><a href="#" class="text-white-50">Terms of Service</a></li>
+                        <li class="list-inline-item"><a href="#" class="text-white-50">Shipping Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Cart Drawer -->
+    <div id="cartDrawer" class="cart-drawer">
+        <div class="cart-header">
+            <h5>Shopping Cart</h5>
+
+            <button class="close-cart" onclick="toggleCart(false)">×</button>
+
+        </div>
+        <div class="cart-body" id="cartItemsContainer">
+            <!-- Dynamic items go here -->
+        </div>
+        <div class="cart-footer">
+            <p><strong>SUBTOTAL:</strong> $<span id="cartSubtotal">0.00</span></p>
+            <p id="freeShippingNote">Add $2000.00 more to get free shipping!</p>
+            <div class="progress">
+                <div class="progress-bar" id="shippingProgress" style="width: 0%"></div>
+            </div>
+            <div class="cart-buttons mt-3 d-flex justify-content-between">
+                <!-- View Cart button in drawer -->
+                <button class="btn w-50 me-2" onclick="window.location.href='cart.html'">View cart</button>
+                <button class="btn w-50 me-2" onclick="window.location.href='Checkout.html'">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- --------------------------------------------- -->
+    <!-- Quick View: Product 1 -->
+
+    <!-- Hidden html -->
+
+    <div id="quickviewCard"
+        style="display: none; position: fixed; top: 15%; left: 50%; transform: translateX(-50%); background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.2); z-index: 1000;">
+        <!-- Close button added here -->
+        <button id="closeQuickView" onclick="hidequickviewCard()"
+            style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #ffffff; background-color: red;">&times;</button>
+
+
+
+        <div class="pc-container">
+            <div class="pc-info-section">
+                <h3 class="pc-title">Aliquam Blandit</h3>
+                <div class="pc-price">$320.00</div>
+                <p class="pc-description">
+                    Portitor lacus luctus accumsan tortor posuere ac ut. Amet luctus venenatis lectus magna fringilla
+                    urna. At erat pellentesque adipiscing commodo elit at imperdiet dui.
+                </p>
+
+                <div class="pc-quantity-control">
+                    <select class="pc-quantity-selector">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                    </select>
+                    <button class="pc-add-to-cart-btn">
+                        <i class="fas fa-shopping-cart" style="margin-right: 8px;"></i> Add to Cart
+                    </button>
+                </div>
+
+                <div class="pc-action-links">
+                    <a href="#"><i class="far fa-heart"></i> Wishlist</a>
+                    <a href="#"><i class="fas fa-exchange-alt"></i> Compare</a>
+                    <a href="#"><i class="fas fa-ruler"></i> Size Guide</a>
+                </div>
+
+                <div class="pc-category">CATEGORY: TABLES</div>
+
+                <a href="index.html" class="pc-product-link">Go to product page</a>
+            </div>
+
+            <div class="pc-image-section">
+                <img src="images/chair.jpg" alt="Aliquam Blandit Table">
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchInput = document.getElementById("productSearch");
+            const allProducts = document.querySelectorAll("#productList .col-md-3");
+            const productList = document.getElementById("productList");
+            const searchForm = document.getElementById("searchForm");
+
+            function filterProducts() {
+                const query = searchInput.value.toLowerCase().trim();
+                let anyMatch = false;
+2
+                allProducts.forEach(product => {
+                    const title = product.querySelector("h5")?.textContent.toLowerCase() || "";
+                    const category = product.querySelector("small")?.textContent.toLowerCase() || "";
+
+                    const isMatch = title.includes(query) || category.includes(query);
+                    product.style.display = isMatch ? "block" : "none";
+                    if (isMatch) anyMatch = true;
+                });
+
+                const notFoundMessage = document.getElementById("notFoundMessage");
+
+                if (query === "") {
+                    allProducts.forEach(p => p.style.display = "block");
+                    productList.style.backgroundColor = "";
+                    notFoundMessage.style.display = "none";
+                } else {
+                    productList.style.backgroundColor = anyMatch ? "#fff" : "#f8d7da";
+                    notFoundMessage.style.display = anyMatch ? "none" : "block";
+                }
+            }
+
+
+            searchInput.addEventListener("input", filterProducts);
+
+            // 👇 Handle Enter key press
+            searchForm.addEventListener("submit", function (e) {
+                e.preventDefault(); // prevent page reload
+                filterProducts();
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+{
+  "navbar": {
+    "brand": {
+      "name": "Furniture",
+      "link": "index.html"
+    },
+    "navigation": [
+      { "label": "Home", "link": "#" },
+      { "label": "Shop", "link": "#products" },
+      { "label": "About Us", "link": "#about" },
+      { "label": "News", "link": "#testimonials" },
+      { "label": "Contact Us", "link": "#contact" }
+    ],
+    "buttons": {
+      "cart": {
+        "id": "cartButton",
+        "icon": "🛒",
+        "badgeId": "cart-count"
+      },
+      "wishlist": {
+        "id": "wishlistCountBtn",
+        "icon": "❤",
+        "badgeId": "wishlistCount"
+      },
+      "login": {
+        "id": "loginBtn",
+        "iconClass": "fa-regular fa-user",
+        "text": "Login"
+      }
+    }
+  },
+
+  "products": [
+    {
+      "title": "Aliquam Blandit",
+      "category": "CHAIR",
+      "price": 220.00,
+      "image": "images/chair.jpg"
+    },
+    {
+      "title": "Diam Volutpat",
+      "category": "DECORS",
+      "price": 322.00,
+      "image": "images/decors2.jpg"
+    },
+    {
+      "title": "Aliquam Blandit",
+      "category": "DECORS",
+      "price": 330.00,
+      "image": "images/Decors.jpg"
+    },
+    {
+      "title": "Aliquam Blandit",
+      "category": "BED",
+      "price": 420.00,
+      "image": "images/bed.jpg"
+    },
+    {
+      "title": "Aliquam Blandit",
+      "category": "TABLE",
+      "price": 334.00,
+      "image": "images/Table.jpg"
+    },
+    {
+      "title": "Aliquam Blandit",
+      "category": "TABLE",
+      "price": 440.00,
+      "image": "images/storage.jpg"
+    },
+    {
+      "title": "Aliquam Blandit",
+      "category": "CHAIR",
+      "price": 220.00,
+      "image": "images/chair.jpg"
+    },
+    {
+      "title": "Aliquam Blandit",
+      "category": "CHAIR",
+      "price": 330.00,
+      "image": "images/product.jpg"
+    }
+  ],
+
+  "quickView": {
+    "title": "Aliquam Blandit",
+    "price": 320.00,
+    "description": "Portitor lacus luctus accumsan tortor posuere ac ut...",
+    "image": "images/chair.jpg",
+    "category": "TABLES",
+    "productPage": "index.html",
+    "quantityOptions": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "actionLinks": [
+      { "icon": "far fa-heart", "label": "Wishlist", "href": "#" },
+      { "icon": "fas fa-exchange-alt", "label": "Compare", "href": "#" },
+      { "icon": "fas fa-ruler", "label": "Size Guide", "href": "#" }
+    ]
+  }
+}

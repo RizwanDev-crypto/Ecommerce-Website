@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Shopping Cart</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f6f6f6;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .cart-page {
+      max-width: 1000px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .sidebar-item {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 15px;
+    }
+
+    .sidebar-item img {
+      width: 100px;
+    }
+
+    .item-details {
+      flex: 1;
+    }
+
+    .item-details h4 {
+      margin: 0 0 5px;
+    }
+
+    .item-details p {
+      margin: 0;
+      font-size: 15px;
+      color: gray;
+    }
+
+    .item-price {
+      font-weight: bold;
+      color: #103e3e;
+    }
+
+    .cart-summary {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 2px solid #ddd;
+    }
+
+    .cart-summary h3 {
+      margin-bottom: 10px;
+    }
+
+    .cart-summary p {
+      font-size: 16px;
+    }
+
+    .checkout-btn {
+      margin-top: 20px;
+      padding: 12px 30px;
+      font-size: 16px;
+      background-color: #103e3e;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cart-page">
+    <h2>Your Shopping Cart</h2>
+    <div id="cartItemsContainer"></div>
+
+    <div class="cart-summary">
+      <h3 id="cartSubtotal">Subtotal: $0.00</h3>
+      <p>Add $1500.00 more for free shipping!</p>
+      <button class="checkout-btn" onclick="window.location.href='Checkout.html'">
+        Proceed to Checkout
+      </button>
+    </div>
+  </div>
+
+  <script>
+    let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    const container = document.getElementById("cartItemsContainer");
+    let subtotal = 0;
+
+    function renderCart() {
+      container.innerHTML = ""; // Clear previous
+
+      if (cartItems.length === 0) {
+        container.innerHTML = "<p>Your cart is empty.</p>";
+        document.getElementById("cartSubtotal").innerText = `Subtotal: $0.00`;
+        return;
+      }
+
+      subtotal = 0;
+      cartItems.forEach((item, index) => {
+        subtotal += parseFloat(item.price);
+
+        const itemHTML = `
+        <div class="sidebar-item" data-index="${index}">
+          <img src="${item.image}" alt="Product Image">
+          <div class="item-details">
+            <h4>${item.title}</h4>
+            <p>${item.category}</p>
+          </div>
+          <div class="item-price">$${item.price}</div>
+          <button onclick="removeItem(${index})" style="margin-left:auto; background:red; color:white; border:none; padding:5px 10px; border-radius:5px; height:40px;">
+            Remove
+          </button>
+        </div>
+      `;
+        container.innerHTML += itemHTML;
+      });
+
+      document.getElementById(
+        "cartSubtotal"
+      ).innerText = `Subtotal: $${subtotal.toFixed(2)}`;
+    }
+
+    function removeItem(index) {
+      cartItems.splice(index, 1); // Remove item from array
+      localStorage.setItem("cart", JSON.stringify(cartItems)); // Save updated cart
+      renderCart(); // Re-render updated cart
+    }
+
+    renderCart();
+  </script>
+</body>
+
+</html>
