@@ -23,14 +23,5 @@ This is a responsive **E-commerce Website** built using **HTML, CSS, JavaScript*
 
 ---
 
-## 📁 File Structure  
 
-📂 Ecommerce-Website/
-├── index.html
-├── cart.html
-├── checkout.html
-├── style.css
-├── script.js
-├── product.json
-└── images/ (product images)
 
